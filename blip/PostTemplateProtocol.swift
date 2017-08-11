@@ -67,6 +67,8 @@ class BaseTemplate {
         
         s = s.replacingOccurrences(of: Config.Token.postTitle.rawValue, with: f.postTitle())
         
+        s = s.replacingOccurrences(of: Config.Token.copyRight.rawValue, with: Config.TokenReplacement.copyRight.rawValue)
+        
         return s
     }
 }

@@ -26,6 +26,7 @@ class IndexTemplate: BaseTemplate {
         
         templateString = templateString.replacingOccurrences(of: Config.Token.postsOlder.rawValue, with: olderFilename)
         templateString = templateString.replacingOccurrences(of: Config.Token.postsNewer.rawValue, with: newerFilename)
+        templateString = templateString.replacingOccurrences(of: Config.Token.copyRight.rawValue, with: Config.TokenReplacement.copyRight.rawValue)
         
         return templateString.replacingOccurrences(of: Config.Token.posts.rawValue, with: postsHTML)
     }

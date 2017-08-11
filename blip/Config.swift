@@ -25,6 +25,8 @@ struct Config {
         
         case readMore = "[[MORE]]"
         
+        case copyRight = "$(COPYRIGHT)"
+        
         case posts = "$(POSTS)"
         case postsOlder = "$(POSTS_OLDER)"
         case postsNewer = "$(POSTS_NEWER)"
@@ -40,9 +42,10 @@ struct Config {
         case postsOlder = "Older Posts &#8594;"
         case postsNewer = "&#8592; Newer Posts"
         case readMore = "Read More &#8594;"
+        case copyRight = "&copy; 2017 Vinny Coyne"
     }
 
-    static var postsPerPage = 5
+    static var postsPerPage = 10
     
     static var postFilenameDateFormat = "yyyyMMdd"
     static var postDateFormat = "dd MMMM yyyy"
