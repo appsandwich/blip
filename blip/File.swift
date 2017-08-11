@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Down
 
 
 struct Tag {
@@ -111,90 +110,7 @@ struct File {
         
         markdownString = markdownString.replacingOccurrences(of: Config.Token.readMore.rawValue, with: "")
         
-        // Hack to maintain HTML codes
-        
-        // The Down framework's toHTML() doesn't seem to handle raw HTML
-        // codes very well - it actually converts e.g. &hellip; to … for example,
-        // which causes display issues. There might be a setting / parameter
-        // I'm missing to prevent this, but for now, we'll just extract and
-        // replace those codes.
-        
-        var htmlTags: [Tag] = []
-        
-        var startRange = markdownString.range(of: "&")
-        
-        var index = markdownString.startIndex
-        
-        while (startRange != nil) {
-            
-            if let start = startRange {
-                
-                let distance = markdownString.distance(from: index, to: start.lowerBound)
-                
-                let startIndex = markdownString.index(index, offsetBy: distance)
-                
-                var endIndex = markdownString.endIndex
-                
-                let nextStartIndex = markdownString.range(of: "&", options: .literal, range: start.upperBound..<endIndex, locale: nil)
-                
-                if let next = nextStartIndex {
-                    endIndex = next.lowerBound
-                }
-                
-                let endRange = markdownString.range(of: ";", options: .literal, range: startIndex..<endIndex, locale: nil)
-                
-                if let end = endRange {
-                 
-                    let tagEndIndex = end.upperBound
-                    
-                    let tagRange = startIndex..<tagEndIndex
-                    
-                    let htmlTag = markdownString.substring(with: tagRange)
-                    
-                    htmlTags.append(Tag(range: tagRange, string: htmlTag))
-                    
-                    index = tagEndIndex
-                    
-                    startRange = markdownString.range(of: "&", options: .literal, range: index..<markdownString.endIndex, locale: nil)
-                }
-                else {
-                    startRange = nil
-                }
-            }
-        }
-        
-        
-        var string = markdownString
-        
-        var replacements: Dictionary<String, String> = [:]
-        
-        htmlTags.forEach { (tag) in
-            
-            let replRange = tag.string.index(tag.string.startIndex, offsetBy: 1)..<tag.string.index(tag.string.endIndex, offsetBy: -1)
-            
-            let replacement = tag.string.substring(with: replRange)
-            
-            string = string.replacingCharacters(in: tag.range, with: "±\(replacement)±")
-            
-            replacements[replacement] = tag.string
-        }
-
-        
-        let down = Down(markdownString: string)
-        
-        do {
-            
-            var htmlString = try down.toHTML()
-            
-            replacements.forEach({ (replacement, tag) in
-                htmlString = htmlString.replacingOccurrences(of: "±\(replacement)±", with: tag)
-            })
-            
-            return htmlString.stringByConvertingHTMLCodes()
-        }
-        catch {
-            return nil
-        }
+        return markdownString.htmlStringFromMarkdown()
     }
     
     public func convertedPreview() -> String? {
@@ -221,11 +137,7 @@ struct File {
             })
         }
         
-        let down = Down(markdownString: subMarkdown)
-        
-        do {
-            
-            var convertedHTML = try down.toHTML(.Smart)
+        if var convertedHTML = subMarkdown.htmlStringFromMarkdown() {
             
             if hasReadMore {
                 
@@ -236,7 +148,7 @@ struct File {
             
             return convertedHTML
         }
-        catch {
+        else {
             return nil
         }
     }
