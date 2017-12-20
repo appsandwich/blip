@@ -126,13 +126,15 @@ class Generator {
         let separator = self.directory.path.hasSuffix("/") ? "" : "/"
         let indexPostTemplate = IndexPostTemplate(path: self.directory.path + separator)
         
+        let buildSingleIndex = sortedDrafts.count <= Config.postsPerPage
+        
         sortedDrafts.enumerated().forEach { (index, draft) in
             
             pageDrafts.append(draft)
             
             postOnPage += 1
             
-            if postOnPage == Config.postsPerPage {
+            if postOnPage == Config.postsPerPage || (buildSingleIndex && postOnPage == sortedDrafts.count) {
                 
                 self.buildIndexForPage(page, with: pageDrafts, using: indexPostTemplate)
                 
