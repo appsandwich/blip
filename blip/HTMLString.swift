@@ -15,7 +15,7 @@ enum HTMLCode: UInt32 {
     case start = 160
     case breakStart = 402
     case breakEnd = 8211
-    case end = 8482
+    case end = 1112064      // https://stackoverflow.com/a/27416004
 }
 
 // Modified code taken from https://stackoverflow.com/a/29835826
