@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Blip uses a specific directory structure for templates and site organisation.
+Blip uses a specific directory structure for templates and site organisation. See the [`example-site/`](/example-site) directory for a demo, or read on for a full description.
 
 ### Templates
 
