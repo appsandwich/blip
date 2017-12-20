@@ -32,8 +32,6 @@ Templates:
 
 * `$(POSTS_NEWER)`: Inserts a "Newer Posts" link into an index template.
 
-* `$(POSTS_NEWER)`: Inserts a "Newer Posts" link into an index template.
-
 * `$(POST_TITLE)`: Inserts the post title into a post or index template.
 
 * `$(POST_TIMESTAMP)`: Inserts the post timestamp into a post or index template.
