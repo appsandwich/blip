@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../stylesheets/index.css">
+		<title>$(POST_TITLE)</title>
+	</head>
+	<body>
+		<div class="post_site_header">
+			<div class="post_site_title"><a href="../../index.html">vinnycoyne.com</a></div>
+			<div class="post_site_subtitle">Magical adventures in nerdery.</div>
+		</div>
+		<div class="post_container">
+			<h3 class="post_timestamp">$(POST_TIMESTAMP)</h3>
+			$(POST_BODY)
+
+			<div class="post_footer">
+				<hr />
+				<a onclick="window.history.back(); return false;" href="#">&#8592; Back</a> | <a href="#">&#x1f517; Permalink</a></br>
+				<p class="copyright">$(COPYRIGHT)</p>
+			</div>
+
+		</div>
+	</body>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-1167220-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+</html>

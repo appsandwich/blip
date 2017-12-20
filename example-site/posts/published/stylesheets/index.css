@@ -1,0 +1,254 @@
+/* GLOBAL */
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-weight: 100;
+    font-size: 100%;
+}
+
+@media screen and (max-device-width: 500px) {
+    body {
+        font-weight: normal;
+        font-size: 250%;
+    }  
+}
+
+@media screen and (max-device-width: 320px) {
+    body {
+        font-weight: normal;
+        font-size: 300%;
+    }  
+}
+
+img { 
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    padding: 1px;
+    display: block;
+    margin: 0 auto;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+}
+
+code {
+    max-width: 600px;
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+@media screen and (max-device-width: 500px) {
+    code {
+        max-width: 80%;
+        overflow: scroll;
+    }  
+}
+
+a {
+    color: rgba(191, 26, 2, 1);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: rgba(86, 1, 0, 1);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+p.copyright {
+    color: #999999;
+    height: 40px;
+    font-weight: 100;
+    font-size: 90%;
+    text-align: right;
+}
+
+/* INDEX */
+
+div.index_site_header {
+    background-color: #444444;
+    width: 100%;
+    height: 80px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+    box-shadow: 0px 0px 2px 0px black;
+}
+
+div.index_site_title {
+    font-weight: 500;
+    font-size: 200%;
+    position: absolute;
+    right: 8px;
+}
+
+div.index_site_title a {
+    color: white;
+}
+
+div.index_site_subtitle {
+    font-style: italic;
+    position: absolute;
+    right: 8px;
+    top: 50px;
+    color: #999999;
+}
+
+@media screen and (max-device-width: 500px) {
+    div.index_site_title {
+        font-size: 100%;
+    }  
+    div.index_site_subtitle {
+        top: 40px;
+        font-size: 70%;
+    }
+}
+
+div.index_posts {
+    max-width: 600px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 100px;
+    padding: 8px;
+}
+
+@media screen and (max-device-width: 500px) {
+    div.index_posts {
+        max-width: 80%;
+        overflow: hidden;
+    }  
+}
+
+div.index_posts_navigation {
+    width: 100%;
+    height: 40px;
+}
+
+div.index_posts_navigation_older {
+    text-align: left;
+    position: absolute;
+    right: 8px;
+}
+
+div.index_posts_navigation_newer {
+    text-align: right;
+    position: absolute;
+    left: 8px;
+}
+
+div.index_posts_footer {
+    width: 100%;
+    height: 80px;
+}
+
+div.index_post {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h1.index_post_title {
+    font-size: 120%;
+    font-weight: 500;
+}
+
+h3.index_post_timestamp {
+    font-size: 100%;
+    font-style: italic;
+    font-weight: 300;
+    color: #999999;
+}
+
+
+/* POST */
+
+div.post_site_header {
+    background-color: #444444;
+    width: 100%;
+    height: 80px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+    box-shadow: 0px 0px 2px 0px black;
+}
+
+div.post_site_title {
+    font-weight: 500;
+    font-size: 200%;
+    position: absolute;
+    right: 8px;
+}
+
+div.post_site_title a {
+    color: white;
+}
+
+div.post_site_subtitle {
+    font-style: italic;
+    position: absolute;
+    right: 8px;
+    top: 50px;
+    color: #999999;
+}
+
+@media screen and (max-device-width: 500px) {
+    div.post_site_title {
+        font-size: 100%;
+    }  
+    div.post_site_subtitle {
+        top: 40px;
+        font-size: 70%;
+    }
+}
+
+div.post_container {
+    max-width: 600px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 100px;
+    padding: 8px;
+}
+
+@media screen and (max-device-width: 500px) {
+    div.post_container {
+        max-width: 80%;
+        overflow: hidden;
+    }  
+}
+
+h3.post_timestamp {
+    font-style: italic;
+    font-weight: 300;
+    color: #999999;
+}
