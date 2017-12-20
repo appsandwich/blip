@@ -102,11 +102,17 @@ extension String {
                     
                     let htmlTag = markdownString.substring(with: tagRange)
                     
-                    htmlTags.append(Tag(range: tagRange, string: htmlTag))
-                    
-                    index = tagEndIndex
-                    
-                    startRange = markdownString.range(of: "&", options: .literal, range: index..<markdownString.endIndex, locale: nil)
+                    if htmlTag.range(of: "\n") == nil, htmlTag.count < 10 {
+                        
+                        htmlTags.append(Tag(range: tagRange, string: htmlTag))
+                        
+                        index = tagEndIndex
+                        
+                        startRange = markdownString.range(of: "&", options: .literal, range: index..<markdownString.endIndex, locale: nil)
+                    }
+                    else {
+                        startRange = nil
+                    }
                 }
                 else {
                     startRange = nil
