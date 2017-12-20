@@ -14,6 +14,35 @@ Templates are layout guides for your sites index and posts pages. The following 
 
 * `post_template.html`: The layout of the individual post page.
 
+### Special Tokens
+
+Blip uses some custom "tokens" for common tasks and text replacements. Use `Config.swift` to customise the replacement strings.
+
+Markdown (Posts):
+
+* `[[MORE]]`: Breaks the post at this point in the `index*.html` pages and inserts a `Read More` link to the full post.
+
+Templates:
+
+* `$(COPYRIGHT)`: Inserts a custom copyright string into an index template.
+
+* `$(POSTS)`: Inserts a list of post snippets into an index template.
+
+* `$(POSTS_OLDER)`: Inserts an "Older Posts" link into an index template.
+
+* `$(POSTS_NEWER)`: Inserts a "Newer Posts" link into an index template.
+
+* `$(POSTS_NEWER)`: Inserts a "Newer Posts" link into an index template.
+
+* `$(POST_TITLE)`: Inserts the post title into a post or index template.
+
+* `$(POST_TIMESTAMP)`: Inserts the post timestamp into a post or index template.
+
+* `$(POST_BODY)`: Inserts the post body into a post or index template (the index template will display up to any `[[MORE]]` token).
+
+* `$(POST_PERMALINK)`: Inserts a post permalink into a post or index template.
+
+
 ### Posts
 
 #### Filenames
@@ -37,6 +66,10 @@ Published posts are organised according to the date in their filename. So for ex
 * `published/images/`: Drop your images in here, and you can reference them in Markdown as follows: `![image](/images/someimage.jpg)`
 
 ## Usage
+
+Write your post in Markdown, with the correct filename convention (`YYYYMMDD.md`), then drop it into the `drafts/` directory.
+
+Then run the following command:
 
     ./blip /path/to/your/blog/ -r
 
